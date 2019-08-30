@@ -57,12 +57,13 @@ def check_delete_users(_url):
         return 300
 
 
-_url = 'http://localhost:5000'
-check_home_page(_url)
-check_add_users(_url + '/' + 'AddUser')
-check_modify_user(_url + '/' + 'ModifyUser')
-check_delete_users(_url + '/' + 'DeleteUser/9999')
-
-
-
-
+def test_api():
+    _url = 'http://localhost:5000'
+    homepage_status = check_home_page(_url)
+    adduser_status = check_add_users(_url + '/' + 'AddUser')
+    modifyuser_status = check_modify_user(_url + '/' + 'ModifyUser')
+    deleteuser_status = check_delete_users(_url + '/' + 'DeleteUser/9999')
+    if homepage_status == 300 or adduser_status == 300 or modifyuser_status == 300 or deleteuser_status == 300:
+        return 300
+    else:
+        return 200
