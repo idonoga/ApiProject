@@ -44,19 +44,20 @@ pipeline {
         }
         
         
-        stage('users-mysql-container-build') {
+        stage('users-mysql-container-build-and-run') {
             steps{
             sh """
                 docker build -t users-mysql ./MySQLDocker/
-                docker run -d --name users-mysql -p 3306:3306 users-mysql
+                docker run -d -p 3306:3306 --name users-mysql -e MYSQL_ROOT_PASSWORD=password users-mysql
                 """
                 
             }
         }
-        stage('run-containers') {
+        stage('flask-api-container-build-and-run') {
             steps{
             sh """
-                
+                docker build -t flask-api ./MyFlaskDocker/
+                docker run -d --name flask-api -p 5000:5000 --link users-mysql flask-api
                 """
                 
             }
