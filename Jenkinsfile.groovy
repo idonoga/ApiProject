@@ -66,7 +66,7 @@ pipeline {
             steps{
                 script
                 {
-                    def STATUS = sh(script:"python3.7 test_api.py, returnStdout: true)
+                    def STATUS = sh(script: "python3.7 test_api.py", returnStdout: true)
                     if (STATUS == 200)
                     {
                         echo "Test succeeded - Api is Working"
