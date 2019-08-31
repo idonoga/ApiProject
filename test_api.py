@@ -64,9 +64,9 @@ def test_api():
     modifyuser_status = check_modify_user(_url + '/' + 'ModifyUser')
     deleteuser_status = check_delete_users(_url + '/' + 'DeleteUser/9999')
     if homepage_status == 300 or adduser_status == 300 or modifyuser_status == 300 or deleteuser_status == 300:
-        print ("Test succeeded")
-    else:
         print ("Test failed")
+    else:
+        print ("Test succeeded")
     
     
 test_api()
