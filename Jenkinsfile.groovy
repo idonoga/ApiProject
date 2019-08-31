@@ -58,6 +58,7 @@ pipeline {
             sh """
                 docker build -t flask-api ./MyFlaskDocker/
                 docker run -d --name flask-api -p 5000:5000 --link users-mysql flask-api
+                sleep 5
                 """ 
             }
         }
