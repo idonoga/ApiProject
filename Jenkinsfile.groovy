@@ -62,7 +62,7 @@ pipeline {
             }
         }
         
-        stage('flask-api-container-build-and-run') {
+        stage('testing-api') {
             steps{
                 script
                 {
