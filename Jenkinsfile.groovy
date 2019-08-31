@@ -58,9 +58,28 @@ pipeline {
             sh """
                 docker build -t flask-api ./MyFlaskDocker/
                 docker run -d --name flask-api -p 5000:5000 --link users-mysql flask-api
-                """
-                
+                """ 
             }
         }
+        
+        stage('flask-api-container-build-and-run') {
+            steps{
+                script
+                {
+                    def STATUS = sh(script:"python3.7 test_api.py, returnStdout: true)
+                    if (STATUS == 200)
+                    {
+                        echo "Test succeeded - Api is Working"
+                    }
+                    else
+                    {
+                        echo "Test Failed - Api isn't Working"
+                    }
+                }
+            }
+        }
+        
+       
+        
     }
 }
