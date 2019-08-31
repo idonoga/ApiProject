@@ -67,3 +67,6 @@ def test_api():
         return 300
     else:
         return 200
+    
+    
+test_api()
