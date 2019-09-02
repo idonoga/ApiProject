@@ -69,6 +69,7 @@ pipeline {
                 script
                 {
                     def STATUS = sh(script: "python3.7 test_api.py", returnStdout: true)
+                    echo STATUS
                     
                     
                    
