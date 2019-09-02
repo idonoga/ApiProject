@@ -69,9 +69,8 @@ pipeline {
                 script
                 {
                     def STATUS = sh(script: "python3.7 test_api.py | grep 'succeeded'", returnStdout: true)
-                    def OK_STATUS = 'succeeded'
-                    echo STATUS
-                    echo OK_STATUS
+                    
+                    
                    
                    
                 }
