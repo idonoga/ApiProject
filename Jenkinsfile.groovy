@@ -73,14 +73,7 @@ pipeline {
                     echo STATUS
                     echo OK_STATUS
                    
-                     if (STATUS =~ OK_STATUS)
-                    {
-                        echo "Test succeeded - Api is Working"
-                    }
-                    else
-                    {
-                        echo "Test Failed - Api isn't Working"
-                    }
+                   
                 }
             }
           }
