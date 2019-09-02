@@ -67,11 +67,19 @@ pipeline {
             steps{
                 script
                 {
-                    def STATUS = sh(script: "python3.7 test_api.py | grep -o succeeded", returnStdout: true)
+                    def STATUS = sh(script: "python3.7 test_api.py | grep -o 'succeeded'", returnStdout: true)
                     def OK_STATUS = 'succeeded'
                     echo STATUS
                     echo OK_STATUS
                    
+                     if (STATUS =~ OK_STATUS)
+                    {
+                        echo "Test succeeded - Api is Working"
+                    }
+                    else
+                    {
+                        echo "Test Failed - Api isn't Working"
+                    }
                 }
             }
         }
